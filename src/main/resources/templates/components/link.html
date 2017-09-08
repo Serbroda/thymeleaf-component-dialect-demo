@@ -4,8 +4,9 @@
 </head>
 <body>
 	
-    <div th:fragment="link(href)">
+    <div th:fragment="link(href, icon)">
         <a th:href="${href}">
+            <i th:class="'glyphicon glyphicon-' + ${icon}"></i>
             <tc:content></tc:content>
         </a>
     </div>
