@@ -2,6 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
 <head>
     <title>Thymeleaf Component Dialect - Demo</title>
+    
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
 	<h1>Thymeleaf Component Dialect - Demo</h1>
@@ -9,5 +13,19 @@
     <tc:component name="components/link :: link('test')">
         <span>Test</span>
     </tc:component>
+    
+    <tc:component name="components/panel :: panel('test')">
+        <span>Test</span>
+    </tc:component>
+    
+    <div class="container">
+        <tc:component name="components/panel :: panel('test')">
+            <span>Test span</span>
+            <tc:component name="components/link :: link('test')">
+                <span>Nested test link</span>
+            </tc:component>
+        </tc:component>
+    </div>
+    
 </body>
 </html>

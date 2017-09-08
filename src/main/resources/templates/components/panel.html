@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<head>
+</head>
+<body>
+    <div th:fragment="panel(title)">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <b th:text="${title}"></b>
+            </div>
+            <div class="panel-body">
+                <tc:content></tc:content>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
