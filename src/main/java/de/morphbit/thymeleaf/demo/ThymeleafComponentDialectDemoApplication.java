@@ -21,6 +21,7 @@ public class ThymeleafComponentDialectDemoApplication {
 	public String index(Model model) {
 		model.addAttribute("msg", "Hello world " + new Date());
 		model.addAttribute("html", "<span th:text=\"${msg}\"></span>");
+		model.addAttribute("strs", new String[] {"Test1", "Test2"});
 		return "index";
 	}
 }

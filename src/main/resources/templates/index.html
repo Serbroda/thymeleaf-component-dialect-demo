@@ -19,9 +19,9 @@
         </tc:component>
     </div>
     
-    <tc:panel params="'Noch ein panel'">
+    <tc:panel params="'Noch ein panel'" tc:if="${msg != null}" tc:each="val : ${strs}">
     	<tc:link params="@{/}, 'plus'">
-    		<span>Well okay</span>
+    		<span th:text="${val}">Well okay</span>
     	</tc:link>
     </tc:panel>
     
