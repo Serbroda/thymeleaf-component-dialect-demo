@@ -20,7 +20,7 @@
     </div>
     
     <tc:panel params="'Noch ein panel'" tc:if="${msg != null}" tc:each="val : ${strs}">
-    	<tc:link params="@{/}, 'plus'">
+    	<tc:link params="@{/}, 'plus'" test="${msg}">
     		<span th:text="${val}">Well okay</span>
     	</tc:link>
     </tc:panel>

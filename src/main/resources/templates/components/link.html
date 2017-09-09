@@ -8,6 +8,7 @@
         <a th:href="${href}">
             <i th:class="'glyphicon glyphicon-' + ${icon}"></i>
             <tc:content></tc:content>
+            <span th:if="${test != null}">Test set. Value is <i th:text="${test}"></i></span>
         </a>
     </div>
 </body>
