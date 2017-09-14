@@ -14,7 +14,6 @@ import de.morphbit.thymeleaf.dialect.ComponentDialect;
 import de.morphbit.thymeleaf.model.ThymeleafComponent;
 
 @Configuration
-@EnableWebMvc
 public class ThymeleafConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean
