@@ -7,23 +7,14 @@
     
 </head>
 <body>
-	<h1>Thymeleaf Component Dialect - Demo</h1>
-
     <div class="container">
-        <tc:component name="components/panel :: panel('Ein Panel')">
-            <span>Test span</span>
-            <tc:component name="components/link :: link(@{/}, 'plus')">
-                <i class="glyphicon glyphicon-home"></i>
-                <span th:text="${msg}">Nested test link</span>
-            </tc:component>
-        </tc:component>
+        <h1>Thymeleaf Component Dialect - Demo</h1>
+
+        <tc:panel params="'Noch ein panel'" th:if="${msg != null}" th:each="val : ${strs}">
+            <tc:link params="@{/}, 'plus'" test="${msg}">
+                <span th:text="${val}">Well okay</span>
+            </tc:link>
+        </tc:panel>
     </div>
-    
-    <tc:panel params="'Noch ein panel'" tc:if="${msg != null}" tc:each="val : ${strs}">
-    	<tc:link params="@{/}, 'plus'" test="${msg}">
-    		<span th:text="${val}">Well okay</span>
-    	</tc:link>
-    </tc:panel>
-    
 </body>
 </html>
