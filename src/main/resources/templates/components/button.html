@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<head>
+</head>
+<body>
+	
+    <button th:fragment="button" type="button" class="btn" th:classappend="${type == null ? 'btn-default' : 'btn-' + type}" th:id="${id != null ? id : ''}" th:onclick="${click != null ? click : ''}">
+        <tc:content></tc:content>
+    </button>
+</body>
+</html>

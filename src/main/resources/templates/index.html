@@ -14,6 +14,11 @@
             <tc:link params="@{/}, 'plus'" test="${msg}">
                 <span th:text="${val}">Well okay</span>
             </tc:link>
+            <tc:button-group>
+                <tc:button id="testid1" click="'alert(\'Left\')'">Left</tc:button>
+                <tc:button id="testid1" click="'alert(\'Middle\')'" type="primary">Middle</tc:button>
+                <tc:button id="testid1" click="'alert(\'Right\')'">Right</tc:button>
+            </tc:button-group>
         </tc:panel>
     </div>
 </body>

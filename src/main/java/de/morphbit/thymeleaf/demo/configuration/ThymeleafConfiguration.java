@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.templateresolver.ITemplateResolver;
@@ -24,12 +23,18 @@ public class ThymeleafConfiguration extends WebMvcConfigurerAdapter {
 		templateEngine.addDialect(new ComponentDialect(thymeleafComponents()));
 		return templateEngine;
 	}
-	
+
 	@Bean
 	public Set<ThymeleafComponent> thymeleafComponents() {
 		Set<ThymeleafComponent> components = new HashSet<>();
-		components.add(new ThymeleafComponent("link", "components/link :: link"));
-		components.add(new ThymeleafComponent("panel", "components/panel :: panel"));
+		components
+		    .add(new ThymeleafComponent("link", "components/link :: link"));
+		components
+		    .add(new ThymeleafComponent("panel", "components/panel :: panel"));
+		components.add(new ThymeleafComponent("button-group",
+		    "components/buttongroup :: buttongroup"));
+		components.add(
+		    new ThymeleafComponent("button", "components/button :: button"));
 		return components;
 	}
 }
