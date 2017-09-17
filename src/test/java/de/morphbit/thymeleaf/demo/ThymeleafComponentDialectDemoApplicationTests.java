@@ -1,4 +1,4 @@
-package de.morphbit.thymeleafcomponentdialectdemo;
+package de.morphbit.thymeleaf.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
