@@ -35,6 +35,8 @@ public class ThymeleafConfiguration extends WebMvcConfigurerAdapter {
 		    "components/buttongroup :: buttongroup"));
 		components.add(
 		    new ThymeleafComponent("button", "components/button :: button"));
+		components.add(
+			    new ThymeleafComponent("floating", "components/floatingLabel :: floating"));
 		return components;
 	}
 }

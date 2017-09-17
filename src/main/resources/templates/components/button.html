@@ -4,8 +4,22 @@
 </head>
 <body>
 	
-    <button th:fragment="button" type="button" class="btn" th:classappend="${type == null ? 'btn-default' : 'btn-' + type}" th:id="${id != null ? id : ''}" th:onclick="${click != null ? click : ''}">
+    <button 
+    	th:fragment="button" 
+    	type="button" 
+    	class="btn" 
+    	th:classappend="${type == null ? 'btn-default' : 'btn-' + type}" 
+    	th:id="${id != null ? id : ''}" 
+    	th:onclick="${click != null ? click : ''}">
+    	
         <tc:content></tc:content>
+        
+        <script type="text/javascript" tc:once="button.script">
+        	function logAndAlert(msg) {
+        		console.log(msg);
+        		alert(msg);
+        	}
+        </script>
     </button>
 </body>
 </html>

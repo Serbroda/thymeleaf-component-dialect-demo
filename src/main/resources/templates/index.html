@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
 <head>
+
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	
     <title>Thymeleaf Component Dialect - Demo</title>
-    
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    
 </head>
 <body>
     <div class="container">
         <h1>Thymeleaf Component Dialect - Demo</h1>
 
-        <tc:panel params="'Noch ein panel'" th:if="${msg != null}" th:each="val : ${strs}">
-            <tc:link params="@{/}, 'plus'" test="${msg}">
-                <span th:text="${val}">Well okay</span>
-            </tc:link>
+        <tc:panel params="'Countries'" th:if="${countries != null}">
+        	
+        	<form th:action="@{/country/add}" method="post" th:object="${country}" style="margin-bottom: 10px">
+	        	<tc:floating params="'ISO CODE'" md="4">
+	        		<input type="text" class="form-control" th:field="*{isoCode}"/>
+	        	</tc:floating>
+	        	<tc:floating params="'Name'">
+	        		<input type="text" class="form-control" th:field="*{name}"/>
+	        	</tc:floating>
+	        	<button type="submit" class="btn btn-primary">Add country</button>
+        	</form>
+        	
+        	
             <tc:button-group>
-                <tc:button id="testid1" click="'alert(\'Left\')'">Left</tc:button>
-                <tc:button id="testid1" click="'alert(\'Middle\')'" type="primary">Middle</tc:button>
-                <tc:button id="testid1" click="'alert(\'Right\')'">Right</tc:button>
+            	<tc:button 
+            		th:each="country : ${countries}" 
+            		id="${country.isoCode}" 
+            		click="'logAndAlert(\'' + ${country.name} + '\')'">
+            		<span><i class="glyphicon glyphicon-globe"></i> [[${country.name}]]</span>
+            	</tc:button>
             </tc:button-group>
         </tc:panel>
     </div>
