@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<head>
+</head>
+<body>
+	
+    <div th:fragment="console" class="row" tc:once="console.css">
+    	<style>
+    		#taConsole {
+    			background-color: #292C35;
+    			color: #82A769;
+    		}
+    	</style>
+    
+        <textarea id="taConsole" rows="6" cols="4" class="form-control"></textarea>
+        
+        <script type="text/javascript" tc:once="console.script">
+	        (function(){
+	
+	            var originallog = console.log;
+	
+	            console.log = function(txt) {
+	            	var targ = event.target || event.srcElement;
+	                document.getElementById("taConsole").value += txt + "\n";
+	
+	                originallog.apply(console, arguments);
+	            }
+	
+	        })();
+        </script>
+    </div>
+</body>
+</html>
