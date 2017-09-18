@@ -6,13 +6,13 @@
 	
     <div th:fragment="console" class="row">
     	<style tc:once="console.css">
-    		#taConsole {
+    		.console-area {
     			background-color: #292C35;
     			color: #82A769;
     		}
     	</style>
     
-        <textarea id="taConsole" rows="6" cols="4" class="form-control"></textarea>
+        <textarea rows="6" cols="4" class="form-control console-area"></textarea>
         
         <script type="text/javascript" tc:once="console.script">
 	        (function(){
@@ -20,12 +20,14 @@
 	            var originallog = console.log;
 	
 	            console.log = function(txt) {
-	            	var targ = event.target || event.srcElement;
-	                document.getElementById("taConsole").value += txt + "\n";
+	            	var consoleElements = document.getElementsByClassName("console-area");
+	            	
+	            	for(var i = 0; i < consoleElements.length; i++) {
+	            		consoleElements[i].value += txt + "\n";
+	            	}
 	
 	                originallog.apply(console, arguments);
 	            }
-	
 	        })();
         </script>
     </div>
