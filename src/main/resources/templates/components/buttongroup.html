@@ -4,7 +4,7 @@
 </head>
 <body>
 	
-    <div th:fragment="buttongroup" th:class="${vertical != null and vertical ? 'btn-group-vertical' : 'btn-group'}" role="group" aria-label="...">
+    <div tc:selector="button-group" th:fragment="buttongroup" th:class="${vertical != null and vertical ? 'btn-group-vertical' : 'btn-group'}" role="group" aria-label="...">
         <tc:content></tc:content>
     </div>
     
