@@ -15,9 +15,9 @@ import de.morphbit.thymeleaf.demo.model.Country;
 
 @Controller
 public class HomeController {
-	
-	private Set<Country> countries = new HashSet<>();
-	
+
+	private final Set<Country> countries = new HashSet<>();
+
 	public HomeController() {
 		this.countries.add(new Country("AU", "Australia"));
 		this.countries.add(new Country("DE", "Germany"));
