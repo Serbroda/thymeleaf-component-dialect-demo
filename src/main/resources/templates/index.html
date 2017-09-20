@@ -7,6 +7,13 @@
     <title>Thymeleaf Component Dialect - Demo</title>
 </head>
 <body>
+
+    <tc:menu>
+        <tc:menu-item text="Home" active href="@{/}"/>
+        <tc:menu-item text="GitHub" href="@{https://github.com/Serbroda/thymeleaf-component-dialect}" blank/>
+        <tc:menu-item text="Demo" href="@{https://github.com/Serbroda/thymeleaf-component-dialect-demo}" blank/>
+    </tc:menu>
+        
     <div class="container">
         <h1>Thymeleaf Component Dialect - Demo</h1>
 
@@ -34,6 +41,7 @@
         </tc:panel>
         
         <tc:console></tc:console>
+        
     </div>
 </body>
 </html>

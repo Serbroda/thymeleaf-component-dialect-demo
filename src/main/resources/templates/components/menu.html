@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<head>
+</head>
+<body>
+	
+    <nav th:fragment="menu" class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <tc:content/>
+        </ul>
+      </div>
+    </nav>
+    
+    <li th:fragment="menu-item" th:classappend="${active != null and active ? 'active' : ''}">
+        <a th:href="${href != null ? href : '#'}" th:text="${text}" th:target="${blank != null and blank ? '_blank' : ''}">Home</a>
+    </li>
+    
+</body>
+</html>
