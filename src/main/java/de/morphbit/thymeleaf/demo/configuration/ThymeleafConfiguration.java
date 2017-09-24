@@ -8,7 +8,7 @@ import de.morphbit.thymeleaf.dialect.ComponentDialect;
 import de.morphbit.thymeleaf.parser.StandardThymeleafComponentParser;
 
 @Configuration
-public class ThymeleafConfiguration extends WebMvcConfigurerAdapter {
+public class ThymeleafConfiguration {
 
 	@Bean
 	public ComponentDialect componentDialect() {
