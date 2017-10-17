@@ -1,5 +1,7 @@
 package de.morphbit.thymeleaf.demo.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Country {
 
 	private String isoCode;
@@ -23,6 +25,7 @@ public class Country {
 		this.isoCode = isoCode;
 	}
 
+	@NotNull
 	public String getName() {
 		return name;
 	}

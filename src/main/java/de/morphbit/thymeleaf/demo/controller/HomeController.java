@@ -5,8 +5,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +45,12 @@ public class HomeController {
 	}
 	
 	@PostMapping("/country/add")
-	public String countryAdd(@ModelAttribute("country") Country country) {
+	public String countryAdd(@Valid @ModelAttribute("country") Country country, BindingResult result, Model model) {
+		if(country.getName() == null || "".equals(country.getName())) {
+			result.addError(new FieldError("country", "name", "Field name cannot be null"));
+			model.addAttribute("country", country);
+			return "index";
+		}
 		this.countries.add(country);
 		return "redirect:/";
 	}

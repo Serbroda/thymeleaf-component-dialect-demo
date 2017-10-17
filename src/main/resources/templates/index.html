@@ -23,9 +23,7 @@
 	        	<tc:floating params="'ISO CODE'" md="4">
 	        		<input type="text" class="form-control" th:field="*{isoCode}" required="required"/>
 	        	</tc:floating>
-	        	<tc:floating params="'Name'">
-	        		<input type="text" class="form-control" th:field="*{name}" required="required"/>
-	        	</tc:floating>
+				<tc:valid-input tc:repl-field="name" title="Name"/>
 	        	<button type="submit" class="btn btn-primary">Add country</button>
         	</form>
         	
