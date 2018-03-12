@@ -6,7 +6,7 @@ Demo application for the [thymeleaf-component-dialect](https://github.com/Serbro
 Requirements
 ------------
 
-This demo is build with with Maven 3 and Java 1.8.
+This demo is build with Maven 3 and Java 1.8.
 
 Usage
 -----
