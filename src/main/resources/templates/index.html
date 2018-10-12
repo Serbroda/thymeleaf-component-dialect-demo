@@ -40,10 +40,10 @@
         <h1>Thymeleaf Component Dialect - Demo</h1>
 
         <br>
-        <tc:panel params="'Countries'" th:if="${countries != null}">
+        <tc:panel tc:constructor="'Countries'" th:if="${countries != null}">
         	
         	<form th:action="@{/country/add}" method="post" th:object="${country}" style="margin-bottom: 10px">
-	        	<tc:floating params="'ISO CODE'" md="4">
+	        	<tc:floating tc:constructor="'ISO CODE'" md="4">
 	        		<input type="text" class="form-control" th:field="*{isoCode}" required="required"/>
 	        	</tc:floating>
 				<tc:valid-input tc:repl-field="name" title="Name"/>
@@ -67,6 +67,8 @@
         <tc:label text="Test1"></tc:label>
         <tc:label text="Test2"></tc:label>
         <tc:label text="Test3"></tc:label>
+
+        <span th:text="${text}"></span>
         
     </div>
 </body>
