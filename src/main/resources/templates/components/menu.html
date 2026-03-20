@@ -15,8 +15,17 @@
       </div>
     </nav>
     
-    <li th:fragment="menu-item" class="nav-item" th:classappend="${active != null and active ? 'active' : ''}">
-        <a class="nav-link" th:href="${href != null ? href : '#'}" th:text="${text}" th:target="${blank != null and blank ? '_blank' : ''}">Home</a>
+    <li
+        th:fragment="menu-item"
+        class="nav-item"
+        th:classappend="${active != null and active ? 'active' : ''}">
+        <a
+            class="nav-link"
+            th:href="${href != null ? href : '#'}"
+            th:target="${blank != null and blank ? '_blank' : ''}">
+            <i th:if="${icon != null}" class="fa-solid" th:classappend="${'fa-' + icon}"></i>
+            [[${text}]]
+        </a>
     </li>
     
 </body>
