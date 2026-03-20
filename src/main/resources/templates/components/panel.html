@@ -6,13 +6,15 @@
     <div th:fragment="panel(title)">
         <div class="card">
             <div class="card-header">
-                <b th:text="${title}"></b>
+                <tc:content name="header"><b th:text="${title}"></b></tc:content>
             </div>
             <div class="card-body">
                 <tc:content></tc:content>
             </div>
-            <div class="card-footer">
-            	<tc:link tc:constructor="@{/}, home"><span th:text="${greeting}"></span></tc:link>
+            <div class="card-footer text-muted">
+                <tc:content name="footer">
+                    <tc:link tc:constructor="@{/}, home"><span th:text="${greeting}"></span></tc:link>
+                </tc:content>
             </div>
         </div>
     </div>

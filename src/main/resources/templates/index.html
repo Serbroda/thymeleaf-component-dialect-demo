@@ -32,7 +32,11 @@
 		<h1>Thymeleaf Component Dialect - Demo</h1>
 
 		<br>
+		<!-- Panel with custom footer slot (header uses default from title param) -->
 		<tc:panel tc:constructor="'Countries'" th:if="${countries != null}">
+			<tc:slot name="footer">
+				<small class="text-muted"><i class="fa-solid fa-globe"></i> [[${#sets.size(countries)}]] countries registered</small>
+			</tc:slot>
 
 			<form th:action="@{/country/add}" method="post" th:object="${country}" style="margin-bottom: 10px">
 				<tc:floating tc:constructor="'ISO CODE'" md="4">
@@ -54,13 +58,27 @@
 		</tc:panel>
 
 		<br>
+
+		<!-- Panel with custom header and footer slots -->
+		<tc:panel tc:constructor="'Info'">
+			<tc:slot name="header">
+				<i class="fa-solid fa-circle-info"></i> <b>About Named Slots</b>
+			</tc:slot>
+			<tc:slot name="footer">
+				<a href="https://github.com/Serbroda/thymeleaf-component-dialect" target="_blank">
+					<i class="fa-solid fa-book"></i> Documentation
+				</a>
+			</tc:slot>
+			<p>This panel uses <strong>named slots</strong> to customize both the header and footer.</p>
+			<p>The default slot contains this body content.</p>
+		</tc:panel>
+
+		<br>
 		<tc:console></tc:console>
 
 		<tc:label text="Test1"></tc:label>
 		<tc:label text="Test2"></tc:label>
 		<tc:label text="Test3"></tc:label>
-
-		<span th:text="${text}"></span>
 
 	</div>
 </body>
