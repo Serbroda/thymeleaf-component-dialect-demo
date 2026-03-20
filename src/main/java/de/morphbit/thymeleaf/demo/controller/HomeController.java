@@ -1,11 +1,11 @@
 package de.morphbit.thymeleaf.demo.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,25 +28,24 @@ public class HomeController {
 		this.countries.add(new Country("FR", "France"));
 		this.countries.add(new Country("US", "United States"));
 	}
-	
+
 	@ModelAttribute("countries")
 	public Set<Country> countriesModel() {
 		return this.countries;
 	}
-	
 
 	@GetMapping("/")
 	public String index(Model model) {
-		SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
-		
-		model.addAttribute("greeting", "Welcome to Thymeleaf Components Dialect - " + format.format(new Date()));
+		var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		model.addAttribute("greeting",
+				"Welcome to Thymeleaf Components Dialect - " + LocalDateTime.now().format(formatter));
 		model.addAttribute("country", new Country());
 		return "index";
 	}
-	
+
 	@PostMapping("/country/add")
 	public String countryAdd(@Valid @ModelAttribute("country") Country country, BindingResult result, Model model) {
-		if(country.getName() == null || "".equals(country.getName())) {
+		if (country.getName() == null || country.getName().isEmpty()) {
 			result.addError(new FieldError("country", "name", "Field name cannot be null"));
 			model.addAttribute("country", country);
 			return "index";

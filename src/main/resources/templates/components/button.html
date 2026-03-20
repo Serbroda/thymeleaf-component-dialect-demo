@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="https://github.com/Serbroda/thymeleaf-component-dialect">
 <head>
 </head>
 <body>
-	
-    <button 
-    	th:fragment="button" 
-    	type="button" 
-    	class="btn" 
-    	th:classappend="${type == null ? 'btn-default' : 'btn-' + type}" 
-    	th:id="${id != null ? id : ''}" 
-    	th:onclick="${click != null ? click : ''}">
-    	
+
+    <button
+    	th:fragment="button"
+    	type="button"
+    	class="btn"
+    	th:classappend="${type == null ? 'btn-default' : 'btn-' + type}"
+    	th:id="${id != null ? id : ''}"
+    	th:data-click="${click}"
+    	onclick="handleClick(this)">
+
         <tc:content></tc:content>
-        
+
         <script type="text/javascript" tc:once="button.script">
         	function logAndAlert(msg) {
         		console.log(msg);
         		alert(msg);
+        	}
+        	function handleClick(el) {
+        		var fn = el.getAttribute('data-click');
+        		if (fn) { eval(fn); }
         	}
         </script>
     </button>

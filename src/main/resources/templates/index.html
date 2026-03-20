@@ -1,75 +1,67 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:tc="https://github.com/Serbroda/thymeleaf-component-dialect"
+>
 <head>
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		crossorigin="anonymous">
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		crossorigin="anonymous">
 
-	<link 
-        rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-        crossorigin="anonymous">
-    <link 
-        rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        
-    <script 
-        src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-        crossorigin="anonymous"></script>
-    <script 
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
-        crossorigin="anonymous"></script>
-    <script 
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-        crossorigin="anonymous"></script>
-	
-    <title>Thymeleaf Component Dialect - Demo</title>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+
+	<title>Thymeleaf Component Dialect - Demo</title>
 </head>
 <body>
 
-    <tc:menu>
-        <tc:menu-item text="Home" active href="@{/}"/>
-        <tc:menu-item text="GitHub" href="@{https://github.com/Serbroda/thymeleaf-component-dialect}" blank/>
-        <tc:menu-item text="Demo" href="@{https://github.com/Serbroda/thymeleaf-component-dialect-demo}" blank/>
-    </tc:menu>
-        
-    <div class="container">
-        <br>
-        <h1>Thymeleaf Component Dialect - Demo</h1>
+	<tc:menu>
+		<tc:menu-item text="Home" active href="@{/}"/>
+		<tc:menu-item text="GitHub" href="'https://github.com/Serbroda/thymeleaf-component-dialect'" blank/>
+		<tc:menu-item text="Demo" href="'https://github.com/Serbroda/thymeleaf-component-dialect-demo'" blank/>
+	</tc:menu>
 
-        <br>
-        <tc:panel tc:constructor="'Countries'" th:if="${countries != null}">
-        	
-        	<form th:action="@{/country/add}" method="post" th:object="${country}" style="margin-bottom: 10px">
-	        	<tc:floating tc:constructor="'ISO CODE'" md="4">
-	        		<input type="text" class="form-control" th:field="*{isoCode}" required="required"/>
-	        	</tc:floating>
+	<div class="container">
+		<br>
+		<h1>Thymeleaf Component Dialect - Demo</h1>
+
+		<br>
+		<tc:panel tc:constructor="'Countries'" th:if="${countries != null}">
+
+			<form th:action="@{/country/add}" method="post" th:object="${country}" style="margin-bottom: 10px">
+				<tc:floating tc:constructor="'ISO CODE'" md="4">
+					<input type="text" class="form-control" th:field="*{isoCode}" placeholder="ISO CODE" required="required"/>
+				</tc:floating>
 				<tc:valid-input tc:repl-field="name" title="Name"/>
-	        	<button type="submit" class="btn btn-primary">Add country</button>
-        	</form>
-        	
-            <tc:button-group>
-            	<tc:button 
-            		th:each="country : ${countries}" 
-            		id="${country.isoCode}" 
-                    type="light"
-            		click="'logAndAlert(\'' + ${country.name} + '\')'">
-            		<span><i class="fa fa-globe"></i> [[${country.name}]]</span>
-            	</tc:button>
-            </tc:button-group>
-        </tc:panel>
-        
-        <br>
-        <tc:console></tc:console>
+				<button type="submit" class="btn btn-primary mt-2">Add country</button>
+			</form>
 
-        <tc:label text="Test1"></tc:label>
-        <tc:label text="Test2"></tc:label>
-        <tc:label text="Test3"></tc:label>
+			<tc:button-group>
+				<tc:button
+					th:each="country : ${countries}"
+					id="${country.isoCode}"
+					type="light"
+					click="'logAndAlert(\'' + ${country.name} + '\')'">
+					<span><i class="fa-solid fa-globe"></i> [[${country.name}]]</span>
+				</tc:button>
+			</tc:button-group>
+		</tc:panel>
 
-        <span th:text="${text}"></span>
-        
-    </div>
+		<br>
+		<tc:console></tc:console>
+
+		<tc:label text="Test1"></tc:label>
+		<tc:label text="Test2"></tc:label>
+		<tc:label text="Test3"></tc:label>
+
+		<span th:text="${text}"></span>
+
+	</div>
 </body>
 </html>

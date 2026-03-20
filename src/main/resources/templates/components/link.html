@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tc="https://github.com/Serbroda/thymeleaf-component-dialect">
 <head>
 </head>
 <body>
 	
     <div th:fragment="link(href, icon)">
         <a th:href="${href}">
-            <i th:class="'glyphicon glyphicon-' + ${icon}"></i>
+            <i th:class="'fa-solid fa-' + ${icon}"></i>
             <tc:content></tc:content>
             <span th:if="${test != null}">Test set. Value is <i th:text="${test}"></i></span>
         </a>

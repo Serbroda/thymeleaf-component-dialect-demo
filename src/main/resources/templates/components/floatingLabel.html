@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:tc="http://www.morphbit.com/thymeleaf/component">
+	xmlns:tc="https://github.com/Serbroda/thymeleaf-component-dialect">
 <head>
 </head>
 <body>
 	<div th:fragment="floating(placeholder)" class="row">
-		<style tc:once="floating.css">
-			.form-control-placeholder {
-				position: absolute;
-				top: 0;
-				padding: 7px 0 0 13px;
-				pointer-events: none;
-				color: #aaa;
-				transition: all 200ms;
-			}
-			
-			.form-control:focus + .form-control-placeholder, .form-control:valid + .form-control-placeholder {
-				color: #000;
-				font-size: 75%;
-				top: -25px;
-			}
-		</style>
-
 		<div th:class="'col-md-' + ${md != null ? md : '12'}" style="margin-top: 4px;">
-			<div class="form-group">
+			<div class="form-floating mb-3">
 				<tc:content></tc:content>
-				<div class="form-control-placeholder">[[${placeholder}]]</div>
+				<label th:text="${placeholder}"></label>
 			</div>
 		</div>
 	</div>
