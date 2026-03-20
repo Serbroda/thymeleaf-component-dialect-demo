@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>com.github.Serbroda</groupId>
 			<artifactId>thymeleaf-component-dialect</artifactId>
-			<version>v0.1.1</version>
+			<version>v0.1.2</version>
 		</dependency>
 
 		<dependency>
